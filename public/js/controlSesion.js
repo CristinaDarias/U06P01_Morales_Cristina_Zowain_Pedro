@@ -46,7 +46,7 @@ function registroEmail() {
     let verificacionPassword = document.getElementById('passwordRepetida').value;
     if (password == verificacionPassword) {
         firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
-            window.location.href = 'public/mapa.html';
+            window.location.href = '../public/mapa.html';
         }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -69,13 +69,13 @@ function logInEmail() {
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            window.location.href = 'public/mapa.html';
+            window.location.href = '../public/mapa.html';
         }
     });
 }
 function logOut() {
     firebase.auth().signOut().then(function () {
-        window.location.href = 'public/index.html';
+        window.location.href = '../public/mapa.html';
     }).catch(function (error) {
         alert('imposible');
     });
