@@ -1,0 +1,15 @@
+body.index{
+    background-image: url(/img/Olaf.png);
+    background-repeat: no-repeat;
+    background-size: 1250px;
+    background-position: 150px 100px;
+}
+#mapa{
+    display: block;
+    height: 550px;
+}
+
+form.border{
+    width: 500px;
+    border-radius: 10px;
+}

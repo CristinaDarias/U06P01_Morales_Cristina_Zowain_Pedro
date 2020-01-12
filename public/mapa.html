@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>U06P01 - Formularios para visualizar mapas</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col p-0">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+          <a class="navbar-brand text-success">Visualizar Mapas con Leaftlet & Mapbox</a>
+          <form class="form-inline">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="logOut">Cerrar Sesión</button>
+          </form>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Seccion mapa -->
+      <div class="col" id="mapa"></div>
+    </div>
+    <div class="row m-0 mt-4 p-0">
+      <div class="col p-0">
+        <form class="form-inline d-flex justify-content-around">
+          <div class="form-group">
+            <!------Seccion Dropdown----------->
+            <select class="form-control mx-2" id="filtroSelect" name="filtroSelect">
+            </select>
+            <!-- En caso de seleccionar 'Otros' -->
+            <select class="form-control mx-2" id="filtroSelectDependiente" name="filtroSelectDependiente"
+              hidden="hidden">
+            </select>
+          </div>
+          <!-- Seccion Código Postal -->
+          <div class="form-group">
+            <label for="codigoPostal" class="sr-only">Código Postal</label>
+            <input type="text" class="form-control" id="codigoPostal" placeholder="Código Postal">
+          </div>
+          <!-- Seccion CheckBox -->
+          <div class="form-group">
+            <input class="form-check-input" type="checkbox" id="checkWeb" value="option1">
+            <label class="form-check-label mr-4" for="checkWeb">Web</label>
+            <input class="form-check-input" type="checkbox" id="checkEmail" value="option1">
+            <label class="form-check-label" for="checkEmail">Email</label>
+          </div>
+      </div>
+      <button type="button" class="btn btn-primary" id="filtrar">Filtrar</button>
+      <div class="form-group">
+        <label class="text-danger ml-4" id="controlError"></label>
+      </div>
+      </form>
+    </div>
+
+  </div>
+  </div>
+</body>
+<script src='/js/culturaEducacion.js' type="module"></script>
+<script src='/js/filtros.js' type="module"></script></script>
+<script src="/js/controlSesion.js"></script>
+<script>
+  if(!firebase.auth()){
+    inicializar();
+  }
+  var btnLogOut = document.getElementById('logOut');
+  btnLogOut.addEventListener('click', logOut, true);
+</script>
+
+</html>
