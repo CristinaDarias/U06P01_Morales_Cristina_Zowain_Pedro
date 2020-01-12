@@ -75,7 +75,7 @@ function logInEmail() {
 }
 function logOut() {
     firebase.auth().signOut().then(function () {
-        window.location.href = '../public/mapa.html';
+        window.location.href = '../public/index.html';
     }).catch(function (error) {
         alert('imposible');
     });
